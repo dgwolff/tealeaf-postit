@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Comment < ActiveRecord::Base
   belongs_to :creator, foreign_key: "user_id", class_name: "User"
-  has_many :comments
+  belongs_to :post
 end
