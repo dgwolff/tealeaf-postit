@@ -15,8 +15,6 @@
 </p>
 <hr>
 
-<%= render "shared/errors", obj: @comment %>
-
 <% if logged_in? %>
   <%= form_for [@post, @comment] do |f| %>
     <div class="control-group">
@@ -30,10 +28,5 @@
 <h5>Comments:</h5>
 
 <% @post.comments.each do |comment| %>
-  <div class="well span8">
-    <em><%= comment.body %></em>
-    <br>
-    <span class="quiet">by</span> <%= comment.creator.username %>
-    <small>on <%= format_date_time(comment.created_at) %></small>
-  </div>
+  <%= render "comments/comment", comment: comment %>
 <% end %>
