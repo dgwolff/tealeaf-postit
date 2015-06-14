@@ -8,4 +8,16 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 5 }
   validates :url, presence: true
   validates :description, presence: true, uniqueness: true
+
+  def total_votes
+    up_votes - down_votes
+  end
+
+  def up_votes
+    votes.where(vote: true).size
+  end
+
+  def down_votes
+    votes.where(vote: false).size
+  end
 end
