@@ -20,32 +20,31 @@ class UsersController < ApplicationController
       render :new
     end
   end
-end
 
-def edit
-end
-
-def update
-  if @user.update(user_params)
-    flash[:notice] = "Your profile has been updated"
-    redirect_to user_path(@user)
-  else
-    render :edit
+  def edit
   end
-end
 
-private
+  def update
+    if @user.update(user_params)
+      flash[:notice] = "Your profile has been updated"
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
+  end
 
-def user_params
-  params.require(:user).permit(:username, :password)
-end
+  private
 
-def set_user
-  @user = User.find(params[:id])
-end
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
 
-def require_same_user
-  if current_user != @user
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    return true if current_user == @user
     flash[:error] = "You're not allowed to do that"
     redirect_to root_path
   end
