@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "You registered successfully"
+      flash[:notice] = "You're now registered"
       redirect_to root_path
     else
       render :new
@@ -27,7 +27,7 @@ end
 
 def update
   if @user.update(user_params)
-    flash[:notice] = "Your profile was updated"
+    flash[:notice] = "Your profile has been updated"
     redirect_to user_path(@user)
   else
     render :edit
