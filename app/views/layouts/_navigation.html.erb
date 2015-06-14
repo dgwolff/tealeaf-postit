@@ -4,7 +4,7 @@
   </li>
 </ul>
 <div class="btn-group nav_item">
-  <%= link_to "#", class: "btn btn-small dropdown-toggle", "data-toggle" => "dropdown" do %>
+  <%= link_to "#", class: "btn dropdown-toggle", "data-toggle" => "dropdown" do %>
     Categories <span class="caret"></span>
   <% end %>
   <ul class="dropdown-menu">
@@ -26,10 +26,10 @@
 </div>
 <% if logged_in? %>
   <div class="nav_item">
-    <%= link_to "New Post", new_post_path, class: "btn btn-success btn-small" %>
+    <%= link_to "New Post", new_post_path, class: "btn btn-success" %>
   </div>
   <div class="btn-group nav_item">
-    <%= link_to "#", class: "btn btn-small dropdown-toggle", "data-toggle" => "dropdown" do %>
+    <%= link_to "#", class: "btn btn-primary dropdown-toggle", "data-toggle" => "dropdown" do %>
       <%= current_user.username %> <span class="caret"></span>
     <% end %>
     <ul class="dropdown-menu">
@@ -55,9 +55,9 @@
   </div>
 <% else %>
   <div class="nav_item">
-    <%= link_to "Register", register_path, class: "btn btn-success btn-small" %>
+    <%= link_to "Register", register_path, class: "btn btn-success" %>
   </div>
   <div class="nav_item">
-    <%= link_to "Log in", login_path, class: "btn btn-small" %>
+    <%= link_to "Log in", login_path, class: "btn btn-primary" %>
   </div>
 <% end %>
