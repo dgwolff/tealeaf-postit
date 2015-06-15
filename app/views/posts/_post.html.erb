@@ -1,32 +1,30 @@
-<div class="row">
-  <div class="col-xs-1 well text-center">
-    <% if logged_in? %>
-      <%= link_to vote_post_path(post, vote: true), method: "post" do %>
-        <i class="icon-arrow-up"></i>
-      <% end %>
-      <%= post.total_votes %>
-      <%= link_to vote_post_path(post, vote: false), method: "post" do %>
-        <i class="icon-arrow-down"></i>
-      <% end %>
-    <% else %>
-      <%= post.total_votes %>
+<div class="col-xs-3 well text-center">
+  <% if logged_in? %>
+    <%= link_to vote_post_path(post, vote: true), method: "post" do %>
+      <i class="glyphicon glyphicon-arrow-up"></i>
     <% end %>
-  </div>
-  <div class="col-xs-1">
-  </div>
-  <div class="col-xs-10 well">
-    <%= render post.categories %>
-    <h4><%= link_to post.title, fix_url(post.url) %></h4>
-    <p><%= post.description %></p>
-    <p>
-      <span class="quiet">posted by</span>
-      <%= link_to post.creator.username, user_path(post.creator) %>
-      <small>on <%= format_date_time(post.created_at) %></small>
-    </p>
-    <small>
-      <span>
-        <%= link_to("#{post.comments.size} comments", post_path(post)) %>
-      </span>
-    </small>
-  </div>
+    <br>
+    <%= post.total_votes %>
+    <br>
+    <%= link_to vote_post_path(post, vote: false), method: "post" do %>
+      <i class="glyphicon glyphicon-arrow-down"></i>
+    <% end %>
+  <% else %>
+    <%= post.total_votes %>
+  <% end %>
+</div>
+<div class="col-xs-9 well">
+  <%= render post.categories %>
+  <h4><%= link_to post.title, fix_url(post.url) %></h4>
+  <p><%= post.description %></p>
+  <p>
+    <span class="quiet">posted by</span>
+    <%= link_to post.creator.username, user_path(post.creator) %>
+    <small>on <%= format_date_time(post.created_at) %></small>
+  </p>
+  <small>
+    <span>
+      <%= link_to("#{post.comments.size} comments", post_path(post)) %>
+    </span>
+  </small>
 </div>

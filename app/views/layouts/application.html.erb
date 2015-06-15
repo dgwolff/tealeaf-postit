@@ -11,21 +11,24 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body>
-    <header>
-      <div class="navbar">
-        <%= render 'layouts/navigation' %>
-      </div>
-    </header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <%= render 'layouts/messages' %>
-          <%= yield %>
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <header>
+              <div class="navbar">
+                <%= render 'layouts/navigation' %>
+              </div>
+            </header>
+            <div class="content">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+            <footer>
+            </footer>
+          </div>
         </div>
       </div>
-      <footer>
-      </footer>
-    </div> <!--! end of .container -->
-  </body>
+    </body>
+  </div>
 </html>
