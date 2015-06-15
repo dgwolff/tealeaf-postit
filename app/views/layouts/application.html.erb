@@ -14,24 +14,18 @@
   <body>
     <header>
       <div class="navbar">
-        <div class="navbar-inner">
-          <div class="container">
-            <%= render 'layouts/navigation' %>
-          </div>
-        </div>
+        <%= render 'layouts/navigation' %>
       </div>
     </header>
-    <div id="main" role="main">
-      <div class="container">
-         <div class="row">
-          <div class="span12">
-            <%= render 'layouts/messages' %>
-            <%= yield %>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <%= render 'layouts/messages' %>
+          <%= yield %>
         </div>
-        <footer>
-        </footer>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
+      </div>
+      <footer>
+      </footer>
+    </div> <!--! end of .container -->
   </body>
 </html>

@@ -1,12 +1,10 @@
 <div class="row">
-  <div class="span0 well text-center">
+  <div class="col-xs-1 well text-center">
     <% if logged_in? %>
       <%= link_to vote_post_path(post, vote: true), method: "post" do %>
         <i class="icon-arrow-up"></i>
       <% end %>
-      <br>
       <%= post.total_votes %>
-      <br>
       <%= link_to vote_post_path(post, vote: false), method: "post" do %>
         <i class="icon-arrow-down"></i>
       <% end %>
@@ -14,7 +12,9 @@
       <%= post.total_votes %>
     <% end %>
   </div>
-  <div class="span8 well">
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-10 well">
     <%= render post.categories %>
     <h4><%= link_to post.title, fix_url(post.url) %></h4>
     <p><%= post.description %></p>

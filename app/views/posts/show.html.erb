@@ -17,9 +17,9 @@
 
 <% if logged_in? %>
   <%= form_for [@post, @comment] do |f| %>
-    <div class="control-group">
+    <div class="form-group">
       <%= f.label :body, "Leave a comment" %>
-      <%= f.text_area :body, rows: 3, class: "span4" %>
+      <%= f.text_area :body, rows: 3, class: "form-control" %>
     </div>
     <%= f.submit "Add Comment", class: "btn btn-primary" %>
   <% end %>
