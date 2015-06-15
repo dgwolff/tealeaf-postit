@@ -1,4 +1,4 @@
-<div class="col-xs-3 well text-center">
+<div class="col-xs-2 well text-center">
   <% if logged_in? %>
     <%= link_to vote_post_path(post, vote: true), method: "post" do %>
       <i class="glyphicon glyphicon-arrow-up"></i>
@@ -13,7 +13,7 @@
     <%= post.total_votes %>
   <% end %>
 </div>
-<div class="col-xs-9 well">
+<div class="col-xs-9 col-xs-offset-1 well">
   <%= render post.categories %>
   <h4><%= link_to post.title, fix_url(post.url) %></h4>
   <p><%= post.description %></p>
