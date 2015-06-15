@@ -25,9 +25,7 @@
   <% end %>
 <% end %>
 
-<% if !@post.comments.empty? %>
-  <h5>Comments:</h5>
-<% end %>
+<h5>Comments:</h5>
 
 <% @post.comments.each do |comment| %>
   <%= render "comments/comment", comment: comment %>
