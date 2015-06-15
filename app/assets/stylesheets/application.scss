@@ -15,13 +15,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.quiet {
-  color: #ababab;
+/* Fix row content overflowing */
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
+/* Change colour of category badge links */
 .label, .badge  {
   a, a:hover, a:focus {
     color: #fff;
     text-decoration: none;
   }
+}
+
+/* Other styling */
+.quiet {
+  color: #ababab;
 }
