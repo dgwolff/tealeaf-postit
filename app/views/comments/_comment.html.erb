@@ -7,13 +7,13 @@
         <i class="glyphicon glyphicon-arrow-up"></i>
       <% end %>
       <br>
-      <%= comment.total_votes %>
+      <%= pluralize(comment.total_votes, "vote") %>
       <br>
       <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: "post" do %>
         <i class="glyphicon glyphicon-arrow-down"></i>
       <% end %>
     <% else %>
-      <%= comment.total_votes %>
+      <%= pluralize(comment.total_votes, "vote") %>
     <% end %>
   </div>
   <div class="col-xs-9 col-xs-offset-1 well">
