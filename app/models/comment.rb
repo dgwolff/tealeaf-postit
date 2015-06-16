@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   has_many :votes, as: :voteable
 
-  validates :body, presence: :true
+  validates :body, presence: true
 
   def total_votes
     up_votes - down_votes
