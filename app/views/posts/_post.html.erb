@@ -1,30 +1,32 @@
-<div class="col-xs-2 well text-center">
-  <% if logged_in? %>
-    <%= link_to vote_post_path(post, vote: true), method: "post" do %>
-      <i class="glyphicon glyphicon-arrow-up"></i>
+<div class="row">
+  <div class="col-xs-2 well text-center">
+    <% if logged_in? %>
+      <%= link_to vote_post_path(post, vote: true), method: "post" do %>
+        <i class="glyphicon glyphicon-arrow-up"></i>
+      <% end %>
+      <br>
+      <%= pluralize(post.total_votes, "vote") %>
+      <br>
+      <%= link_to vote_post_path(post, vote: false), method: "post" do %>
+        <i class="glyphicon glyphicon-arrow-down"></i>
+      <% end %>
+    <% else %>
+      <%= pluralize(post.total_votes, "vote") %>
     <% end %>
-    <br>
-    <%= pluralize(post.total_votes, "vote") %>
-    <br>
-    <%= link_to vote_post_path(post, vote: false), method: "post" do %>
-      <i class="glyphicon glyphicon-arrow-down"></i>
-    <% end %>
-  <% else %>
-    <%= pluralize(post.total_votes, "vote") %>
-  <% end %>
-</div>
-<div class="col-xs-9 col-xs-offset-1 well">
-  <%= render post.categories %>
-  <h4><%= link_to post.title, fix_url(post.url) %></h4>
-  <p><%= post.description %></p>
-  <p>
-    <span class="quiet">posted by</span>
-    <%= link_to post.creator.username, user_path(post.creator) %>
-    <small><%= time_ago_in_words(post.created_at) %> ago</small>
-  </p>
-  <small>
-    <span>
-      <%= link_to("#{pluralize(post.comments.size, "comment")}", post_path(post)) %>
-    </span>
-  </small>
+  </div>
+  <div class="col-xs-9 col-xs-offset-1 well">
+    <%= render post.categories %>
+    <h4><%= link_to post.title, fix_url(post.url) %></h4>
+    <p><%= post.description %></p>
+    <p>
+      <span class="quiet">posted by</span>
+      <%= link_to post.creator.username, user_path(post.creator) %>
+      <small><%= time_ago_in_words(post.created_at) %> ago</small>
+    </p>
+    <small>
+      <span>
+        <%= link_to("#{pluralize(post.comments.size, "comment")}", post_path(post)) %>
+      </span>
+    </small>
+  </div>
 </div>
