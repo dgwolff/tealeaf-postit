@@ -3,3 +3,7 @@
 <% @posts.each do |post| %>
   <%= render "post", post: post %>
 <% end %>
+
+<div id="pagination-container">
+  <%= will_paginate %>
+</div>

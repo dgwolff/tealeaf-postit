@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   def index
     ## Temporary - has to be a more efficient way of doing this - limit to 50
     ## recent posts?
-    @posts = Post.all.sort_by { |x| x.total_votes }.reverse
+    # @posts = Post.all.sort_by { |x| x.total_votes }.reverse
+    @posts = Post.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
