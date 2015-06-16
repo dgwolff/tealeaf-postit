@@ -21,6 +21,11 @@
   margin-right: 0;
 }
 
+/* Prevent textarea expanding outside parent */
+textarea.form-control {
+    max-width: 100%;
+}
+
 /* Change colour of category badge links */
 .label, .badge  {
   a, a:hover, a:focus {
