@@ -1,10 +1,11 @@
-<%= render "shared/content_title", title: "Profile: #{@user.username}" %>
+<%= render "shared/content_title", title: "User Profile: #{@user.username}" %>
 
 <div class="well">
-  <dl class="dl-horizontal">
-    <dt>Username:</dt>
-    <dd><%= @user.username %></dd>
-  </dl>
+  <ul id="user-info">
+    <li><strong>Username:</strong> <%=@user.username %></li>
+    <li><strong>Time Zone:</strong></li>
+    <li><strong>Two Factor Authentication:</strong></li>
+  </ul>
 </div>
 
 <div id="user-activity-panel">
