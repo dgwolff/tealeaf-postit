@@ -20,7 +20,7 @@
   <p>
     <span class="quiet">posted by</span>
     <%= link_to post.creator.username, user_path(post.creator) %>
-    <small>on <%= format_date_time(post.created_at) %></small>
+    <small><%= time_ago_in_words(post.created_at) %> ago</small>
   </p>
   <small>
     <span>
