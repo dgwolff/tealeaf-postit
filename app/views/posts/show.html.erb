@@ -25,10 +25,12 @@
   <% end %>
 <% end %>
 
-<% if !@post.comments.empty? %>
-  <h5>Comments:</h5>
-<% end %>
+<div id="comments-panel">
+  <% if !@post.comments.empty? %>
+    <h5>Comments:</h5>
+  <% end %>
 
-<% @post.comments.each do |comment| %>
-  <%= render "comments/comment", comment: comment %>
-<% end %>
+  <% @post.comments.each do |comment| %>
+    <%= render "comments/comment", comment: comment %>
+  <% end %>
+</div>

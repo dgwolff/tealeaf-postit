@@ -7,23 +7,26 @@
   </dl>
 </div>
 
-<h5><%= @user.username %>'s Activity</h5>
+<div id="user-activity-panel">
+  <h5><%= @user.username %>'s Activity</h5>
+    <ul class="nav nav-tabs">
+      <li class="<%= "active" if params[:tab].nil? %>">
+        <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %>
+      </li>
+      <li class="<%= "active" if params[:tab] == "comments" %>">
+        <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: "comments") %>
+      </li>
+    </ul>
 
-<ul class="nav nav-tabs">
-  <li class="<%= "active" if params[:tab].nil? %>">
-    <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %>
-  </li>
-  <li class="<%= "active" if params[:tab] == "comments" %>">
-    <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: "comments") %>
-  </li>
-</ul>
-
-<% if params[:tab].nil? %>
-  <% @user.posts.each do |post| %>
-    <%= render "posts/post", post: post %>
-  <% end %>
-<% elsif params[:tab] == "comments" %>
-  <% @user.comments.each do |comment| %>
-    <%= render "comments/comment", comment: comment, show_post: true %>
-  <% end %>
-<% end %>
+    <div id="user-activity-content">
+      <% if params[:tab].nil? %>
+        <% @user.posts.each do |post| %>
+          <%= render "posts/post", post: post %>
+        <% end %>
+      <% elsif params[:tab] == "comments" %>
+        <% @user.comments.each do |comment| %>
+          <%= render "comments/comment", comment: comment, show_post: true %>
+        <% end %>
+      <% end %>
+    </div>
+</div>
