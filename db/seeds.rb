@@ -1,5 +1,5 @@
 # Users
-2.times do
+5.times do
   name = Faker::Name.first_name
   password = "password"
   User.create!(username: name,
@@ -8,25 +8,27 @@
 end
 
 # Categories
-2.times do
-  name = Faker::Hacker.ingverb
+5.times do
+  name = Faker::Hacker.adjective
   Category.create!(name: name)
 end
 
 
 # Posts
-users = User.order(:created_at).take(1)
-2.times do
-  url = Faker::Internet.url
-  title = Faker::Company.catch_phrase
-  description = Faker::Company.bs
-  created_at = Faker::Date.backward(14)
-  category_ids = Category.pluck(:id).sample(1)
-  users.each { |user| user.posts.create!(url: url,
-                                         title: title,
-                                         description: description,
-                                         created_at: created_at,
-                                         category_ids: category_ids) }
+users = User.all
+users.each do |user|
+  5.times do
+    url = Faker::Internet.url
+    title = Faker::Company.catch_phrase
+    description = Faker::Company.bs
+    created_at = Faker::Date.backward(14)
+    category_ids = Category.pluck(:id).sample(1)
+    user.posts.create!(url: url,
+                       title: title,
+                       description: description,
+                       created_at: created_at,
+                       category_ids: category_ids)
+  end
 end
 
 # Comments
