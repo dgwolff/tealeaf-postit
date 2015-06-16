@@ -1,4 +1,4 @@
-== Postit!
+## Postit!
 
 This is the app from [Tealeaf Academy's](http://gotealeaf.com) Rapid Prototyping with Ruby on Rails course.
 
