@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   def vote
     @comment = Comment.find(params[:id])
     @vote = Vote.create(voteable: @comment, creator: current_user,
-                       vote: params[:vote])
+                        vote: params[:vote])
     respond_to do |format|
       format.html do
         if @vote.valid?

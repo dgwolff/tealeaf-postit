@@ -45,7 +45,7 @@ class PostsController < ApplicationController
 
   def vote
     @vote = Vote.create(voteable: @post, creator: current_user,
-                       vote: params[:vote])
+                        vote: params[:vote])
     respond_to do |format|
       format.html do
         if @vote.valid?
