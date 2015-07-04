@@ -5,8 +5,6 @@ class PostsController < ApplicationController
   before_action :require_user, except: [:show, :index]
 
   def index
-    ## Temporary - has to be a more efficient way of doing this - limit to 50
-    ## recent posts?
     @posts = Post.all.sort_by { |x| x.total_votes }.reverse
                  .paginate(page: params[:page], per_page: 10)
   end
