@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Sluggable
+
   has_many :posts
   has_many :comments
   has_many :votes
@@ -10,13 +12,5 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
 
-  before_save :generate_slug
-
-  def to_param
-    slug
-  end
-
-  def generate_slug
-    self.slug = username.gsub(" ", "-").downcase
-  end
+  sluggable_column :username
 end
