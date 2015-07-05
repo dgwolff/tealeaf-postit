@@ -13,4 +13,12 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
 
   sluggable_column :username
+
+  def admin?
+    role == "admin"
+  end
+
+  def moderator?
+    role == "moderator"
+  end
 end
