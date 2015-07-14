@@ -15,6 +15,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'twilio-ruby'
+gem 'figaro'
 
 group :doc do
   gem 'sdoc', require: false
