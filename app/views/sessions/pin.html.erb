@@ -1,0 +1,13 @@
+<%= render "shared/content_title", title: "Enter your PIN to log in" %>
+<p>
+  Two-factor authentication is enabled on your account. You'll shortly receive a PIN via text message. Enter this pin below to log in.
+</p>
+<div class="well">
+  <%= form_tag "/pin" do %>
+    <div class="form-group">
+      <%= label_tag :pin, "PIN" %>
+      <%= text_field_tag :pin, params[:pin] || "", class: "form-control" %>
+    </div>
+    <%= submit_tag "Continue", class: "btn btn-primary" %>
+  <% end %>
+</div>
