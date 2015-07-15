@@ -37,13 +37,15 @@ class User < ActiveRecord::Base
   def send_pin_to_twilio
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
     auth_token = ENV["TWILIO_AUTH_TOKEN"]
+    from_number = ENV["TWILIO_FROM_NUMBER"]
+    to_number = ENV["TWILIO_TO_NUMBER"]
 
     client = Twilio::REST::Client.new(account_sid, auth_token)
 
     msg = "Hi, please input the following PIN to login: #{pin}"
     account = client.account
-    message = client.account.sms.messages.create(from: "+15005550006",
-                                                 to: "+14108675309",
+    message = client.account.sms.messages.create(from: from_number,
+                                                 to: to_number,
                                                  body: msg)
   end
 end
