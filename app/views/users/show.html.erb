@@ -4,7 +4,9 @@
   <ul id="user-info">
     <li><strong>Username:</strong> <%= @user.username %></li>
     <li><strong>Time Zone:</strong> <%= @user.time_zone %></li>
-    <li><strong>Two Factor Authentication:</strong></li>
+    <li><strong>Two Factor Authentication:</strong>
+      <%= if @user.two_factor_auth?; "On" else "Off" end %>
+    </li>
   </ul>
 </div>
 
