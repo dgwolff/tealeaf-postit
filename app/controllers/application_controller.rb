@@ -27,4 +27,18 @@ class ApplicationController < ActionController::Base
     flash[:error] = "You don't have permission to do that"
     redirect_to root_path
   end
+
+  def vote_response(obj)
+    respond_to do |format|
+      format.html do
+        if @vote.valid?
+          flash[:notice] = "Your vote was counted"
+        else
+          flash[:error] = "You've already voted on this #{obj}"
+        end
+        redirect_to :back
+      end
+      format.js
+    end
+  end
 end
